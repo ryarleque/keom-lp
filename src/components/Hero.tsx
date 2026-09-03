@@ -56,7 +56,7 @@ export function Hero() {
               const Icon = STAT_ICON[s.icon];
               return (
                 <li key={s.label} className="flex max-w-[9rem] flex-col gap-2.5">
-                  <span className="grid h-10 w-10 place-items-center rounded-full border border-mint/40 text-mint">
+                  <span className="grid h-10 w-10 place-items-center rounded-full border border-line-2 text-ink">
                     <Icon size={18} />
                   </span>
                   <span className="text-[0.86rem] leading-snug text-ink-soft">
@@ -68,8 +68,16 @@ export function Hero() {
           </ul>
         </div>
 
-        {/* right: product mockup, bleeding off the right edge */}
-        <div className="relative lg:-mr-16 xl:-mr-28">
+        {/* right: product mockup, blended into the background, bleeding off the right edge */}
+        <div className="relative lg:-mr-20 lg:-mt-6 xl:-mr-32">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -inset-x-8 -inset-y-6 -z-10"
+            style={{
+              background:
+                "radial-gradient(55% 55% at 62% 42%, rgba(61,220,132,0.16), transparent 72%)",
+            }}
+          />
           <img
             src={dash.src}
             width={dash.w}
@@ -78,11 +86,16 @@ export function Hero() {
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="w-full max-w-[560px] select-none sm:max-w-[640px] lg:max-w-none"
+            className="w-full select-none"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, #000 9%, #000 100%), linear-gradient(to bottom, #000 82%, transparent)",
+              WebkitMaskComposite: "source-in",
+              maskImage:
+                "linear-gradient(to right, transparent, #000 9%, #000 100%), linear-gradient(to bottom, #000 82%, transparent)",
+              maskComposite: "intersect",
+            }}
           />
-          <p className="mt-3 text-right font-mono text-[0.58rem] uppercase tracking-[0.18em] text-ink-mute lg:pr-16 xl:pr-28">
-            Panel de ejemplo
-          </p>
         </div>
       </div>
     </section>
