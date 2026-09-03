@@ -1,0 +1,173 @@
+// KEOM landing — contenido compartido.
+// Todo el ejemplo gira en torno a un centro estético ficticio, "Lumina".
+// Pre-lanzamiento: sin clientes, métricas ni testimonios reales. Las cifras van
+// etiquetadas como "ejemplo".
+
+// TODO(keom): reemplazar por el número / link real de WhatsApp comercial.
+const WHATSAPP_NUMBER = "51999999999";
+
+export function whatsappUrl(context = "landing"): string {
+  const text = encodeURIComponent(
+    `Hola KEOM, quiero agendar una demo. (via ${context})`,
+  );
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+}
+
+// Copy del hero
+export const HERO = {
+  title: "¿Cuánto dinero pierdes por responder tarde?",
+  answer: "La mayoría de negocios no lo sabe.",
+  body: "KEOM detecta las oportunidades que se estancan, impulsa la siguiente acción y te ayuda a recuperar ventas.",
+  ctaPrimary: "Agendar demo",
+  ctaSecondary: "¿Cómo funciona?",
+};
+
+// Splash: la marca KEOM significa Keep Every Opportunity Moving.
+export const KEEP_LINES = [
+  "Keep every consulta.",
+  "Keep every follow-up.",
+  "Keep every cita.",
+];
+export const KEEP_TAGLINE = "Keep Every Opportunity Moving";
+
+// Fotos: stock (Unsplash) en public/photos/ + el mockup de producto.
+export const PHOTOS = {
+  dashboard: { src: "/photos/dashboard.jpg", w: 1600, h: 1200, alt: "Panel de KEOM: oportunidades en riesgo, ventas recuperadas y próxima acción" },
+  herodark: { src: "/photos/herodark.jpg", w: 1400, h: 933, alt: "Sesión de tratamiento en un centro estético, con aceites y velas" },
+  salon: { src: "/photos/salon.jpg", w: 1400, h: 934, alt: "Interior de un centro estético" },
+  hero: { src: "/photos/hero.jpg", w: 1600, h: 1064, alt: "Tratamiento facial en un centro estético" },
+  facial: { src: "/photos/facial.jpg", w: 1200, h: 800, alt: "Aplicación de mascarilla facial" },
+  consult: { src: "/photos/consult.jpg", w: 1200, h: 800, alt: "Esteticista atendiendo a una clienta" },
+  treatment: { src: "/photos/treatment.jpg", w: 1200, h: 800, alt: "Tratamiento corporal en cabina" },
+  products: { src: "/photos/products.jpg", w: 1200, h: 800, alt: "Trabajo administrativo en el centro estético" },
+  spa: { src: "/photos/spa.jpg", w: 1600, h: 1067, alt: "Cabina de tratamiento en calma" },
+  glow: { src: "/photos/glow.jpg", w: 1200, h: 800, alt: "Detalle de rostro después de un tratamiento" },
+} as const;
+
+export type PhotoName = keyof typeof PHOTOS;
+
+export type OppStatus = "en-riesgo" | "seguimiento" | "cita" | "recuperada";
+
+export const STATUS_LABEL: Record<OppStatus, string> = {
+  "en-riesgo": "En riesgo",
+  seguimiento: "Seguimiento",
+  cita: "Cita reservada",
+  recuperada: "Recuperada",
+};
+
+export const STATUS_COLOR: Record<OppStatus, string> = {
+  "en-riesgo": "var(--at-risk)",
+  seguimiento: "var(--amber)",
+  cita: "var(--cyan)",
+  recuperada: "var(--recovered)",
+};
+
+export interface Opportunity {
+  cliente: string;
+  servicio: string;
+  intent: string;
+  from: number;
+  to: number;
+  status: OppStatus;
+  signal: string;
+  silencio: string;
+}
+
+// Tablero de oportunidades — ejemplos del centro estético
+export const BOARD: Opportunity[] = [
+  {
+    cliente: "Camila R.",
+    servicio: "Limpieza facial profunda",
+    intent: "Pidió precio y disponibilidad, se quedó en visto",
+    from: 58,
+    to: 79,
+    status: "seguimiento",
+    signal: "Alta intención y 3 días en silencio. Seguimiento enviado.",
+    silencio: "3 días",
+  },
+  {
+    cliente: "Andrea M.",
+    servicio: "Botox tercio superior",
+    intent: "Preguntó por la promo del mes, sin respuesta del equipo",
+    from: 41,
+    to: 41,
+    status: "en-riesgo",
+    signal: "Nadie respondió hace 4 h. Lead de alta intención.",
+    silencio: "4 horas",
+  },
+  {
+    cliente: "Lucía T.",
+    servicio: "Depilación láser, piernas completas",
+    intent: "Comparó precios y pidió horarios de la tarde",
+    from: 52,
+    to: 74,
+    status: "cita",
+    signal: "Se ofreció disponibilidad. Cita reservada para el sábado.",
+    silencio: "1 día",
+  },
+  {
+    cliente: "Fiorella S.",
+    servicio: "Peeling químico",
+    intent: "Consultó por sesiones, respondió tibio y se enfrió",
+    from: 34,
+    to: 61,
+    status: "seguimiento",
+    signal: "Reactivación con info de resultados. Volvió a responder.",
+    silencio: "6 días",
+  },
+  {
+    cliente: "Valeria G.",
+    servicio: "Paquete novia",
+    intent: "Cotizó, agendó y confirmó la sesión de prueba",
+    from: 47,
+    to: 90,
+    status: "recuperada",
+    signal: "Recordatorio de cita. Asistió y dejó la separación.",
+    silencio: "0",
+  },
+];
+
+// KEOM en seis pasos
+export const STEPS: { title: string; body: string; photo: keyof typeof PHOTOS }[] = [
+  { title: "Entiende", body: "Lee la conversación y sabe qué tratamiento quiere la clienta y qué tan decidida está.", photo: "consult" },
+  { title: "Detecta", body: "Marca las consultas que se están enfriando antes de que se pierdan.", photo: "glow" },
+  { title: "Prioriza", body: "Ordena a quién responder primero según intención y valor.", photo: "facial" },
+  { title: "Actúa", body: "Responde, hace seguimiento y ofrece horarios cuando corresponde.", photo: "treatment" },
+  { title: "Escala", body: "Si hace falta criterio humano, pasa el contexto completo a la esteticista.", photo: "products" },
+  { title: "Mide", body: "Muestra qué citas se recuperaron y su impacto en el mes.", photo: "spa" },
+];
+
+// Conversación de ejemplo para la secuencia problema -> solución
+export const RECOVERY_CHAT: { who: "cliente" | "negocio"; text: string }[] = [
+  { who: "cliente", text: "Hola, ¿hacen limpieza facial profunda? ¿Qué precio tiene?" },
+  { who: "negocio", text: "¡Hola! Sí. La sesión está S/ 180." },
+  { who: "cliente", text: "¿Tienen espacio esta semana en la tarde?" },
+  { who: "negocio", text: "Déjame confirmar la agenda y te aviso." },
+  { who: "cliente", text: "Ok, quedo atenta." },
+];
+
+export const AI_TASKS = [
+  "Preguntas frecuentes",
+  "Clasificar la consulta",
+  "Seguimiento",
+  "Ofrecer horarios",
+  "Recordatorios de cita",
+];
+export const HUMAN_TASKS = [
+  "Clientas de alto valor",
+  "Recomendar el tratamiento",
+  "Objeciones y dudas",
+  "Casos delicados",
+  "Cerrar la venta",
+];
+
+export const SERVICES = [
+  "Limpieza facial",
+  "Botox y rellenos",
+  "Depilación láser",
+  "Peelings",
+  "Tratamientos corporales",
+  "Paquetes novia",
+];
+
+export const INTEGRATIONS = ["HubSpot", "Kommo", "Zoho", "Tu CRM actual", "Sin CRM"];

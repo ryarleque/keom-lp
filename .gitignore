@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local agent tooling / skills (not part of the app)
+/.claude/
+/.agents/
+/skills-lock.json
+
+# design references (kept locally, not shipped)
+/public/mock1.png
+/public/mock-section*.png
+/public/mock-section*.svg
+/public/hero-image.png
+/public/page1.jpeg
+/public/page2.jpeg
+/public/koam-logo.jpeg
+/diseno-propuesto.md
+/keom-brief.md
