@@ -115,6 +115,14 @@ export function Bell({ size = 22, className }: P) {
   );
 }
 
+export function ChevronDown({ size = 16, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
 export function ArrowRight({ size = 18, className }: P) {
   return (
     <svg {...base(size)} className={className} aria-hidden>

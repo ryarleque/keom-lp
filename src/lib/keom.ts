@@ -210,6 +210,56 @@ export const FLOW_STEPS: {
   },
 ];
 
+// Sección 5 (Paneles) — datos de ejemplo
+export const VENDOR_ROWS: {
+  name: string;
+  initials: string;
+  opp: string;
+  status: string;
+  tone: "danger" | "warn";
+}[] = [
+  { name: "Andrea Torres", initials: "AT", opp: "Tratamiento facial", status: "Sin respuesta 3h", tone: "danger" },
+  { name: "Juan Pérez", initials: "JP", opp: "Paquete premium", status: "Sin respuesta 2h", tone: "danger" },
+  { name: "María López", initials: "ML", opp: "Sesión demostrativa", status: "Seguimiento 45m", tone: "warn" },
+];
+
+export const OWNER_METRICS: {
+  label: string;
+  value: string;
+  delta: string;
+  tone: "mint" | "danger" | "info";
+  trend: number[];
+}[] = [
+  {
+    label: "Ingresos recuperados",
+    value: "S/ 45,780",
+    delta: "27% vs. mes anterior",
+    tone: "mint",
+    trend: [8, 10, 9, 13, 12, 16, 18, 17, 22, 26, 24, 31],
+  },
+  {
+    label: "Oportunidades en riesgo",
+    value: "32",
+    delta: "18% vs. mes anterior",
+    tone: "danger",
+    trend: [10, 12, 11, 14, 13, 16, 15, 19, 21, 20, 26, 30],
+  },
+  {
+    label: "Tasa de respuesta",
+    value: "78%",
+    delta: "11% vs. mes anterior",
+    tone: "info",
+    trend: [6, 8, 9, 8, 11, 13, 12, 16, 18, 21, 24, 27],
+  },
+  {
+    label: "Ventas recuperadas",
+    value: "S/ 12,480",
+    delta: "31% vs. mes anterior",
+    tone: "mint",
+    trend: [7, 9, 8, 11, 14, 13, 17, 16, 21, 24, 28, 33],
+  },
+];
+
 // KEOM en seis pasos
 export const STEPS: { title: string; body: string; photo: keyof typeof PHOTOS }[] = [
   { title: "Entiende", body: "Lee la conversación y sabe qué tratamiento quiere la clienta y qué tan decidida está.", photo: "consult" },
