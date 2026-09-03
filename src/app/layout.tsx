@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Saira_Condensed, Martian_Mono, Hanken_Grotesk } from "next/font/google";
+import { Archivo, Martian_Mono, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const saira = Saira_Condensed({
-  variable: "--font-saira",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800", "900"],
   display: "swap",
 });
 
 const martian = Martian_Mono({
   variable: "--font-martian",
   subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -46,15 +47,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
-  colorScheme: "light",
+  themeColor: "#0a0f16",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es"
-      className={`${saira.variable} ${martian.variable} ${hanken.variable} h-full antialiased`}
+      className={`${archivo.variable} ${martian.variable} ${hanken.variable} h-full antialiased`}
     >
       <body className="min-h-full overflow-x-hidden bg-bg text-ink">
         {children}

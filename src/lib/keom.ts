@@ -13,14 +13,31 @@ export function whatsappUrl(context = "landing"): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 }
 
+// Navegación (one-page: ancla a las secciones que existen)
+export const NAV: { label: string; href: string }[] = [
+  { label: "Producto", href: "#producto" },
+  { label: "Cómo funciona", href: "#como-funciona" },
+  { label: "Paneles", href: "#paneles" },
+  { label: "Integraciones", href: "#integraciones" },
+  { label: "Contacto", href: "#contacto" },
+];
+
 // Copy del hero
 export const HERO = {
-  title: "¿Cuánto dinero pierdes por responder tarde?",
+  eyebrow: "Inteligencia que recupera ventas",
+  title: "¿Cuánto dinero estás perdiendo por responder tarde?",
   answer: "La mayoría de negocios no lo sabe.",
-  body: "KEOM detecta las oportunidades que se estancan, impulsa la siguiente acción y te ayuda a recuperar ventas.",
+  body: "KEOM detecta oportunidades estancadas, impulsa la siguiente acción y te ayuda a recuperar ventas.",
   ctaPrimary: "Agendar demo",
   ctaSecondary: "¿Cómo funciona?",
 };
+
+// Mini-stats bajo el hero
+export const HERO_STATS: { icon: "shield" | "clock" | "trend"; label: string }[] = [
+  { icon: "shield", label: "Más ventas recuperadas" },
+  { icon: "clock", label: "Equipos más enfocados" },
+  { icon: "trend", label: "Resultados medibles" },
+];
 
 // Splash: la marca KEOM significa Keep Every Opportunity Moving.
 export const KEEP_LINES = [
@@ -32,6 +49,7 @@ export const KEEP_TAGLINE = "Keep Every Opportunity Moving";
 
 // Fotos: stock (Unsplash) en public/photos/ + el mockup de producto.
 export const PHOTOS = {
+  heroDash: { src: "/assets/hero-dashboard.png", w: 1035, h: 900, alt: "Panel de KEOM en una laptop: oportunidades en riesgo, ventas recuperadas y próxima acción sugerida (datos de ejemplo)" },
   dashboard: { src: "/photos/dashboard.jpg", w: 1600, h: 1200, alt: "Panel de KEOM: oportunidades en riesgo, ventas recuperadas y próxima acción" },
   herodark: { src: "/photos/herodark.jpg", w: 1400, h: 933, alt: "Sesión de tratamiento en un centro estético, con aceites y velas" },
   salon: { src: "/photos/salon.jpg", w: 1400, h: 934, alt: "Interior de un centro estético" },

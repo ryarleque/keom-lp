@@ -1,50 +1,47 @@
 @import "tailwindcss";
 
 /* ============================================================
-   KEOM — light color-block world
-   White base · KEOM-blue bands · one dark band for impact
+   KEOM — dark / mint world
+   Near-black navy ground · mint-green accent · white break bands
    ============================================================ */
 
 :root {
-  --bg: #ffffff;
-  --surface: #f5f7fb;
-  --surface-2: #eef2f8;
-  --ink: #141a22;
-  --ink-soft: #55616f;
-  --ink-mute: #8a95a3;
-  --line: #e5e9f0;
+  /* ground — dark is the default */
+  --bg: #0a0f16;
+  --bg-2: #0d131c;
+  --surface: #111a25;
+  --surface-2: #17212e;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-2: rgba(255, 255, 255, 0.15);
 
-  --blue: #0e347f;
-  --blue-deep: #0a2860;
-  --blue-bright: #2f6bd6;
-  --on-blue: #ffffff;
-  --on-blue-soft: rgba(255, 255, 255, 0.82);
-  --on-blue-mute: rgba(255, 255, 255, 0.6);
-  --on-blue-line: rgba(255, 255, 255, 0.2);
-  --on-blue-card: rgba(255, 255, 255, 0.08);
+  --ink: #f1f6f8;
+  --ink-soft: #9aa7b2;
+  --ink-mute: #63707c;
 
-  --dark: #0b1220;
-  --dark-2: #121c2e;
-  --on-dark: #eef2f8;
-  --on-dark-soft: #9aa7ba;
-  --on-dark-line: rgba(255, 255, 255, 0.12);
+  /* light break bands */
+  --paper: #ffffff;
+  --paper-2: #f6f6f3;
+  --paper-line: #e6e6e1;
+  --on-paper: #0e1720;
+  --on-paper-soft: #55606b;
+  --on-paper-mute: #8a939c;
 
-  --night: #0a0b0f;
-  --night-2: #14161d;
-  --on-night: #f3f5f9;
-  --on-night-soft: #a7adba;
-  --on-night-line: rgba(255, 255, 255, 0.12);
+  /* accent — mint */
+  --mint: #3ddc84;
+  --mint-strong: #29c471;
+  --mint-fill: #92e6b6;
+  --on-mint: #06210f;
+  --mint-dim: rgba(61, 220, 132, 0.14);
 
-  --cyan: #16a6c9;
-  --cyan-bright: #3dd6ee;
-  --recovered: #1a9e6f;
-  --at-risk: #e0484d;
-  --amber: #cc8a1e;
+  /* status */
+  --danger: #f0574e;
+  --warn: #e6a23c;
+  --info: #4a9de8;
 
-  --shadow-card: 0 1px 2px rgba(20, 26, 34, 0.05),
-    0 16px 36px -16px rgba(20, 26, 34, 0.16);
-  --shadow-soft: 0 1px 2px rgba(20, 26, 34, 0.04),
-    0 8px 20px -12px rgba(20, 26, 34, 0.1);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 24px 60px -28px rgba(0, 0, 0, 0.75);
+  --shadow-soft: 0 16px 40px -24px rgba(0, 0, 0, 0.6);
+  --glow-mint: 0 0 44px -8px rgba(61, 220, 132, 0.35);
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -58,41 +55,34 @@
   --color-foreground: var(--ink);
 
   --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-ink-mute: var(--ink-mute);
-  --color-line: var(--line);
 
-  --color-blue: var(--blue);
-  --color-blue-deep: var(--blue-deep);
-  --color-blue-bright: var(--blue-bright);
-  --color-on-blue: var(--on-blue);
-  --color-on-blue-soft: var(--on-blue-soft);
-  --color-on-blue-mute: var(--on-blue-mute);
-  --color-on-blue-line: var(--on-blue-line);
-  --color-on-blue-card: var(--on-blue-card);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-line: var(--paper-line);
+  --color-on-paper: var(--on-paper);
+  --color-on-paper-soft: var(--on-paper-soft);
+  --color-on-paper-mute: var(--on-paper-mute);
 
-  --color-dark: var(--dark);
-  --color-dark-2: var(--dark-2);
-  --color-on-dark: var(--on-dark);
-  --color-on-dark-soft: var(--on-dark-soft);
-  --color-on-dark-line: var(--on-dark-line);
+  --color-mint: var(--mint);
+  --color-mint-strong: var(--mint-strong);
+  --color-mint-fill: var(--mint-fill);
+  --color-on-mint: var(--on-mint);
+  --color-mint-dim: var(--mint-dim);
 
-  --color-night: var(--night);
-  --color-night-2: var(--night-2);
-  --color-on-night: var(--on-night);
-  --color-on-night-soft: var(--on-night-soft);
-  --color-on-night-line: var(--on-night-line);
+  --color-danger: var(--danger);
+  --color-warn: var(--warn);
+  --color-info: var(--info);
 
-  --color-cyan: var(--cyan);
-  --color-cyan-bright: var(--cyan-bright);
-  --color-recovered: var(--recovered);
-  --color-at-risk: var(--at-risk);
-  --color-amber: var(--amber);
-
-  --font-display: var(--font-saira), "Arial Narrow", sans-serif;
+  --font-display: var(--font-archivo), "Arial Narrow", system-ui, sans-serif;
   --font-mono: var(--font-martian), ui-monospace, "SF Mono", monospace;
   --font-body: var(--font-hanken), system-ui, sans-serif;
 }
@@ -112,11 +102,11 @@
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--blue) 22%, transparent);
+    background: color-mix(in oklab, var(--mint) 28%, transparent);
   }
 
   :focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--mint);
     outline-offset: 3px;
     border-radius: 3px;
   }
@@ -125,20 +115,19 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.04;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.02;
     text-wrap: balance;
   }
 
   .tnum {
-    font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 }
 
-/* full-bleed color band: place on a child of a normal-flow container */
+/* full-bleed band: place on a child of a normal-flow container */
 .bleed {
   width: 100vw;
   margin-left: 50%;

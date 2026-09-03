@@ -25,9 +25,9 @@ export function KeomMark({ size = 40, className, title, drawn = false }: Props) 
     >
       <defs>
         <linearGradient id={`${uid}-g`} x1="8" y1="60" x2="118" y2="14" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#2f7df2" />
-          <stop offset="0.55" stopColor="#37d4ee" />
-          <stop offset="1" stopColor="#4fe6c8" />
+          <stop offset="0" stopColor="#20b46a" />
+          <stop offset="0.55" stopColor="#3ddc84" />
+          <stop offset="1" stopColor="#79f0b4" />
         </linearGradient>
       </defs>
 
@@ -83,21 +83,21 @@ export function KeomMark({ size = 40, className, title, drawn = false }: Props) 
 
 export function KeomLogo({
   className,
-  markSize = 32,
+  markSize = 30,
   tone = "ink",
 }: {
   className?: string;
   markSize?: number;
-  tone?: "ink" | "light";
+  tone?: "ink" | "paper";
 }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className ?? ""}`}>
       <KeomMark size={markSize} title="KEOM" />
       <span
-        className={`font-display font-bold uppercase leading-none ${
-          tone === "light" ? "text-white" : "text-ink"
+        className={`font-display font-extrabold uppercase leading-none ${
+          tone === "paper" ? "text-on-paper" : "text-ink"
         }`}
-        style={{ fontSize: markSize * 0.82, letterSpacing: "0.01em" }}
+        style={{ fontSize: markSize * 0.78, letterSpacing: "0.04em" }}
       >
         Keom
       </span>

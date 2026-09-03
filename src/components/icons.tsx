@@ -79,6 +79,42 @@ export function Spark({ size = 22, className }: P) {
   );
 }
 
+export function TrendUp({ size = 22, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <path d="M5 16l6-6 3 3 5-5" />
+      <path d="M19 8v4h-4" />
+    </svg>
+  );
+}
+
+export function Shield({ size = 22, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <path d="M12 3l7 3v5c0 4.5-2.8 7.5-7 9-4.2-1.5-7-4.5-7-9V6l7-3Z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+export function Eye({ size = 22, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" />
+      <circle cx="12" cy="12" r="2.6" />
+    </svg>
+  );
+}
+
+export function Bell({ size = 22, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4l2-2Z" />
+      <path d="M10 20a2 2 0 0 0 4 0" />
+    </svg>
+  );
+}
+
 export function Users({ size = 22, className }: P) {
   return (
     <svg {...base(size)} className={className} aria-hidden>

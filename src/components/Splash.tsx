@@ -66,7 +66,7 @@ export function Splash() {
 
   // Servidor y primer render de cliente: solo el fondo oscuro (determinista).
   if (!mounted) {
-    return <div className="fixed inset-0 z-[60] bg-night" aria-hidden />;
+    return <div className="fixed inset-0 z-[60] bg-bg" aria-hidden />;
   }
 
   if (phase === "gone") return null;
@@ -76,7 +76,7 @@ export function Splash() {
 
   return (
     <div
-      className="fixed inset-0 z-[60] grid place-items-center bg-night px-6 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.7,0,0.84,0)]"
+      className="fixed inset-0 z-[60] grid place-items-center bg-bg px-6 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.7,0,0.84,0)]"
       style={{
         opacity: phase === "leaving" ? 0 : 1,
         transform: phase === "leaving" && !reduce ? "translateY(-2%)" : "none",
@@ -93,7 +93,7 @@ export function Splash() {
         </motion.div>
 
         <motion.span
-          className="font-display text-5xl font-bold uppercase tracking-[0.03em] text-on-night sm:text-6xl"
+          className="font-display text-5xl font-extrabold uppercase tracking-[0.04em] text-ink sm:text-6xl"
           initial={rise}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: animateIn ? 0.55 : 0 }}
@@ -102,7 +102,7 @@ export function Splash() {
         </motion.span>
 
         <motion.span
-          className="font-display text-xl font-medium tracking-[0.01em] text-on-night-soft sm:text-2xl"
+          className="font-display text-xl font-medium tracking-[0.01em] text-ink-soft sm:text-2xl"
           initial={rise}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: animateIn ? 0.95 : 0 }}
@@ -113,7 +113,7 @@ export function Splash() {
 
       {!reduce && (
         <motion.div
-          className="absolute bottom-0 left-0 h-[3px] bg-cyan-bright"
+          className="absolute bottom-0 left-0 h-[3px] bg-mint"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{
