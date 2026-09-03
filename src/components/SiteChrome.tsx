@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { KeomLogo } from "./KeomMark";
-import { NAV } from "@/lib/keom";
+import { NAV, whatsappUrl } from "@/lib/keom";
 
 /** True once the page has scrolled past `offset` px (IntersectionObserver sentinel). */
 function useScrolledPast(offset: number) {
@@ -52,7 +52,9 @@ export function SiteHeader() {
         </nav>
 
         <a
-          href="#contacto"
+          href={whatsappUrl("header")}
+          target="_blank"
+          rel="noopener noreferrer"
           className="press rounded-[10px] bg-mint-fill px-4 py-2 font-display text-[0.72rem] font-bold uppercase tracking-[0.1em] text-on-mint hover:bg-mint"
         >
           Agendar demo
@@ -67,7 +69,9 @@ export function StickyDemoButton() {
 
   return (
     <a
-      href="#contacto"
+      href={whatsappUrl("sticky")}
+      target="_blank"
+      rel="noopener noreferrer"
       aria-hidden={!past}
       tabIndex={past ? 0 : -1}
       className={`fixed bottom-5 right-5 z-40 flex items-center gap-2.5 rounded-full bg-mint-fill px-5 py-3 font-display text-[0.72rem] font-bold uppercase tracking-[0.12em] text-on-mint shadow-[0_18px_40px_-16px_rgba(61,220,132,0.5)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 hover:bg-mint active:scale-[0.97] ${

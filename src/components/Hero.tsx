@@ -1,4 +1,4 @@
-import { HERO, HERO_STATS, PHOTOS } from "@/lib/keom";
+import { HERO, HERO_STATS, PHOTOS, whatsappUrl } from "@/lib/keom";
 import { Button, Eyebrow } from "./ui";
 import { Shield, Clock, TrendUp } from "./icons";
 
@@ -43,7 +43,12 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="#contacto" variant="solid">
+            <Button
+              href={whatsappUrl("hero")}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="solid"
+            >
               {HERO.ctaPrimary}
             </Button>
             <Button href="#como-funciona" variant="ghost">

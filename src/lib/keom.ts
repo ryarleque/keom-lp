@@ -3,18 +3,16 @@
 // Pre-lanzamiento: sin clientes, métricas ni testimonios reales. Las cifras van
 // etiquetadas como "ejemplo".
 
-// TODO(keom): reemplazar por los datos reales de contacto comercial.
-const WHATSAPP_NUMBER = "51999999999";
+const WHATSAPP_NUMBER = "51938244200";
+export const DEMO_MESSAGE = "Estamos listos para recuperar ventas, vamos por ello.";
+// TODO(keom): confirmar el email real de contacto.
 export const CONTACT = {
-  whatsappDisplay: "+51 987 654 321",
+  whatsappDisplay: "+51 938 244 200",
   email: "contacto@keom.ai",
 };
 
-export function whatsappUrl(context = "landing", message?: string): string {
-  const text = encodeURIComponent(
-    message ?? `Hola KEOM, quiero agendar una demo. (via ${context})`,
-  );
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+export function whatsappUrl(_context = "landing", message: string = DEMO_MESSAGE): string {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 // Sección 6 (contacto / CTA final)
