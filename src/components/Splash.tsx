@@ -93,7 +93,7 @@ export function Splash() {
         </motion.div>
 
         <motion.span
-          className="font-display text-5xl font-extrabold uppercase tracking-[0.04em] text-ink sm:text-6xl"
+          className="font-display text-splash font-extrabold uppercase tracking-[0.04em] text-ink"
           initial={rise}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: animateIn ? 0.55 : 0 }}
@@ -102,7 +102,7 @@ export function Splash() {
         </motion.span>
 
         <motion.span
-          className="font-display text-xl font-medium tracking-[0.01em] text-ink-soft sm:text-2xl"
+          className="font-display text-lg font-medium tracking-[0.01em] text-ink-soft sm:text-xl"
           initial={rise}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: animateIn ? 0.95 : 0 }}

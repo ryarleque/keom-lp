@@ -31,18 +31,16 @@ export function Hero() {
         <div className="max-w-[34rem]">
           <Eyebrow>{HERO.eyebrow}</Eyebrow>
 
-          <h1 className="mt-4 text-[2rem] font-extrabold uppercase leading-[1.06] tracking-[0] [text-wrap:normal] sm:text-[2.5rem] lg:text-[2.9rem]">
+          <h1 className="mt-4 text-h1 font-extrabold uppercase tracking-[0] [text-wrap:normal]">
             {HERO.title}
           </h1>
 
-          <p className="mt-5 text-lg font-medium text-ink sm:text-xl">
+          <p className="mt-5 max-w-md text-lg font-medium text-ink">
             {HERO.answer}
           </p>
-          <p className="mt-4 max-w-md text-[0.98rem] leading-relaxed text-ink-soft">
-            {HERO.body}
-          </p>
+          <p className="mt-4 max-w-md text-md text-ink-soft">{HERO.body}</p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button
               href={whatsappUrl("hero")}
               target="_blank"
@@ -56,7 +54,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-6">
+          <ul className="mt-12 flex sm:flex-row sm:flex-wrap gap-x-8 gap-y-6">
             {HERO_STATS.map((s) => {
               const Icon = STAT_ICON[s.icon];
               return (
@@ -64,7 +62,7 @@ export function Hero() {
                   <span className="grid h-10 w-10 place-items-center rounded-full border border-line-2 text-ink">
                     <Icon size={18} />
                   </span>
-                  <span className="text-[0.84rem] leading-snug text-ink-soft">
+                  <span className="text-sm leading-snug text-ink-soft">
                     {s.label}
                   </span>
                 </li>

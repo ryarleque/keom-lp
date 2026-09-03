@@ -28,12 +28,10 @@ export function WhyItCosts() {
               }`}
             >
               <Icon size={28} className="text-on-paper" />
-              <h3 className="mt-5 min-h-[2.6em] font-body text-[0.95rem] font-bold leading-snug tracking-[-0.005em] text-on-paper">
+              <h3 className="mt-5 min-h-[3em] font-body text-base font-semibold leading-snug tracking-[-0.005em] text-on-paper">
                 {p.title}
               </h3>
-              <p className="mt-2 text-[0.88rem] leading-relaxed text-on-paper-soft">
-                {p.body}
-              </p>
+              <p className="mt-2 text-base text-on-paper-soft">{p.body}</p>
             </li>
           );
         })}

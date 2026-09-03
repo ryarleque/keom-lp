@@ -10,7 +10,7 @@ function BrandMark({ brand, color }: { brand: string; color?: string }) {
   else if (brand === "gmail") glyph = <Mail size={16} />;
   else if (brand === "kommo")
     glyph = (
-      <span className="font-display text-[0.85rem] font-extrabold leading-none">
+      <span className="font-display text-sm font-extrabold leading-none">
         K
       </span>
     );
@@ -28,7 +28,7 @@ function BrandMark({ brand, color }: { brand: string; color?: string }) {
 export function Integrations() {
   return (
     <Section tone="dark" id="integraciones" pad="none" innerClassName="py-12 sm:py-16">
-      <p className="text-center font-display text-[0.9rem] font-bold uppercase tracking-[0.12em] text-ink-soft">
+      <p className="text-center font-display text-sm font-bold uppercase tracking-[0.12em] text-ink-soft">
         Se integra con las herramientas que ya usas
       </p>
 
@@ -36,7 +36,7 @@ export function Integrations() {
         {INTEGRATIONS.map((it) => (
           <li
             key={it.name}
-            className={`inline-flex items-center gap-2.5 rounded-xl border border-line bg-surface/60 px-5 py-3 text-[0.88rem] ${
+            className={`inline-flex items-center gap-2.5 rounded-xl border border-line bg-surface/60 px-5 py-3 text-base ${
               it.brand === "more" ? "text-ink-mute" : "text-ink-soft"
             }`}
           >

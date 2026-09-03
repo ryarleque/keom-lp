@@ -187,7 +187,7 @@ function Stage({ beat }: { beat: Beat }) {
         initial={{ opacity: 0, y: -4 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.28, ease: [0.23, 1, 0.32, 1] }}
-        className="inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-1.5 font-mono text-[0.66rem] font-semibold uppercase tracking-[0.12em]"
+        className="inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.12em]"
         style={{ background: chip.bg, color: chip.fg }}
       >
         {beat.status === "En riesgo" ? (
@@ -202,13 +202,13 @@ function Stage({ beat }: { beat: Beat }) {
       <h3 className="text-[2rem] font-semibold leading-[1.08] text-on-blue sm:text-[2.6rem]">
         {beat.head}
       </h3>
-      <p className="max-w-sm text-[0.98rem] leading-relaxed text-on-blue-soft">
+      <p className="max-w-sm text-md leading-relaxed text-on-blue-soft">
         {beat.caption}
       </p>
 
       {/* probability stat, below the description */}
       <div className="mt-1 border-t border-on-blue-line pt-4">
-        <span className="font-mono text-[0.56rem] uppercase tracking-[0.2em] text-on-blue-mute">
+        <span className="font-mono text-2xs uppercase tracking-[0.2em] text-on-blue-mute">
           Probabilidad de cierre
         </span>
         <div className="mt-1 flex items-baseline gap-2">
@@ -251,11 +251,11 @@ function RightCol({ beat }: { beat: number }) {
         }`}
       >
         <div className="flex items-center justify-between border-b border-line pb-3">
-          <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-ink-mute">
+          <span className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-mute">
             WhatsApp · Camila R.
           </span>
           <span
-            className={`font-mono text-[0.52rem] uppercase tracking-[0.12em] text-at-risk transition-opacity duration-300 ${
+            className={`font-mono text-2xs uppercase tracking-[0.12em] text-at-risk transition-opacity duration-300 ${
               cooling ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -272,7 +272,7 @@ function RightCol({ beat }: { beat: number }) {
         </ul>
         <div
           style={{ background: "#e9f6f1" }}
-          className={`mt-3 rounded-lg px-3 py-2 font-mono text-[0.68rem] text-recovered transition-all duration-500 ${
+          className={`mt-3 rounded-lg px-3 py-2 font-mono text-xs text-recovered transition-all duration-500 ${
             beat >= 5 ? "opacity-100" : "pointer-events-none h-0 overflow-hidden py-0 opacity-0"
           }`}
         >
@@ -302,7 +302,7 @@ function Bubble({
       className={`flex shrink-0 flex-col ${mine ? "items-end" : "items-start"}`}
     >
       <span
-        className={`max-w-[86%] rounded-2xl px-3.5 py-2 text-[0.85rem] leading-snug ${
+        className={`max-w-[86%] rounded-2xl px-3.5 py-2 text-sm leading-snug ${
           mine
             ? "rounded-br-sm bg-blue text-white"
             : "rounded-bl-sm bg-surface-2 text-ink-soft"
@@ -311,7 +311,7 @@ function Bubble({
         {text}
       </span>
       {badge ? (
-        <span className="mt-1 font-mono text-[0.5rem] uppercase tracking-[0.14em] text-blue">
+        <span className="mt-1 font-mono text-2xs uppercase tracking-[0.14em] text-blue">
           {badge}
         </span>
       ) : null}

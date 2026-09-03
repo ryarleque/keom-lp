@@ -14,7 +14,7 @@ function ChatRow({ row }: { row: StepRow }) {
     return (
       <div className={`flex ${row.mine ? "justify-end" : "justify-start"}`}>
         <div
-          className={`max-w-[86%] rounded-2xl px-3 py-2 text-[0.82rem] leading-snug ${
+          className={`max-w-[86%] rounded-2xl px-3 py-2 text-sm leading-snug ${
             row.mine
               ? "rounded-br-sm bg-[color-mix(in_oklab,var(--mint)_40%,#0f2a1c)] text-ink"
               : "rounded-bl-sm bg-surface-2 text-ink-soft"
@@ -22,7 +22,7 @@ function ChatRow({ row }: { row: StepRow }) {
         >
           {row.text}
           {row.time ? (
-            <span className="ml-2 align-baseline text-[0.62rem] text-ink-mute">
+            <span className="ml-2 align-baseline text-2xs text-ink-mute">
               {row.time}
             </span>
           ) : null}
@@ -33,7 +33,7 @@ function ChatRow({ row }: { row: StepRow }) {
 
   if (row.kind === "tag") {
     return (
-      <div className="flex items-center gap-2 rounded-lg bg-surface-2 px-2.5 py-2 text-[0.76rem] text-ink-soft">
+      <div className="flex items-center gap-2 rounded-lg bg-surface-2 px-2.5 py-2 text-xs text-ink-soft">
         <Target size={14} className="shrink-0 text-mint" />
         {row.text}
       </div>
@@ -43,11 +43,11 @@ function ChatRow({ row }: { row: StepRow }) {
   if (row.kind === "alert") {
     return (
       <div className="rounded-lg border border-danger/25 bg-[color-mix(in_oklab,var(--danger)_10%,transparent)] px-3 py-2.5">
-        <p className="flex items-center gap-2 text-[0.8rem] font-semibold text-danger">
+        <p className="flex items-center gap-2 text-sm font-semibold text-danger">
           <Warning size={15} className="shrink-0" />
           {row.title}
         </p>
-        <p className="mt-0.5 pl-6 text-[0.74rem] text-ink-soft">{row.sub}</p>
+        <p className="mt-0.5 pl-6 text-xs text-ink-soft">{row.sub}</p>
       </div>
     );
   }
@@ -55,17 +55,17 @@ function ChatRow({ row }: { row: StepRow }) {
   if (row.kind === "success") {
     return (
       <div className="rounded-lg border border-mint/25 bg-mint-dim px-3 py-2.5">
-        <p className="flex items-center gap-2 text-[0.8rem] font-semibold text-mint">
+        <p className="flex items-center gap-2 text-sm font-semibold text-mint">
           <Calendar size={15} className="shrink-0" />
           {row.title}
         </p>
-        <p className="mt-0.5 pl-6 text-[0.74rem] text-ink-soft">{row.sub}</p>
+        <p className="mt-0.5 pl-6 text-xs text-ink-soft">{row.sub}</p>
       </div>
     );
   }
 
   // hint
-  return <p className="text-[0.76rem] leading-snug text-ink-soft">{row.text}</p>;
+  return <p className="text-xs leading-snug text-ink-soft">{row.text}</p>;
 }
 
 const list = {
@@ -109,14 +109,14 @@ export function HowItWorks() {
             ) : null}
 
             <div className="flex items-start gap-3 sm:min-h-[7rem]">
-              <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-mint/50 font-mono text-[0.7rem] font-semibold text-mint">
+              <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-mint/50 font-mono text-xs font-semibold text-mint">
                 {i + 1}
               </span>
               <div>
-                <h3 className="text-[0.92rem] font-semibold leading-snug text-ink">
+                <h3 className="text-base font-semibold leading-snug text-ink">
                   {step.title}
                 </h3>
-                <p className="mt-1.5 text-[0.8rem] leading-snug text-ink-soft">
+                <p className="mt-1.5 text-sm leading-snug text-ink-soft">
                   {step.summary}
                 </p>
               </div>
@@ -135,10 +135,10 @@ export function HowItWorks() {
                     <WhatsApp size={13} />
                   )}
                 </span>
-                <span className="text-[0.78rem] font-semibold text-ink">
+                <span className="text-sm font-semibold text-ink">
                   {step.from}
                 </span>
-                <span className="ml-auto text-[0.64rem] text-ink-mute">
+                <span className="ml-auto text-2xs text-ink-mute">
                   {step.status}
                 </span>
               </div>

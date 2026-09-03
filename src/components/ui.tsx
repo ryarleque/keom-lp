@@ -12,8 +12,8 @@ const V: Record<ButtonVariant, string> = {
 };
 
 const S: Record<ButtonSize, string> = {
-  md: "px-5 py-2.5 text-[0.8rem]",
-  lg: "px-7 py-3.5 text-[0.85rem]",
+  md: "px-5 py-2.5 text-sm",
+  lg: "px-7 py-3.5 text-sm",
 };
 
 export function Button({
@@ -51,7 +51,7 @@ export function Eyebrow({
 }) {
   return (
     <p
-      className={`text-[0.74rem] font-semibold uppercase tracking-[0.16em] ${
+      className={`text-sm font-semibold uppercase tracking-[0.16em] ${
         tone === "mint" ? "text-mint" : "text-ink-mute"
       } ${className}`}
     >
@@ -92,7 +92,7 @@ export function SectionHeading({
     <header className={`${maxW} ${className}`}>
       {eyebrow ? <div className="mb-3">{eyebrow}</div> : null}
       <h2
-        className={`text-[1.75rem] leading-[1.08] [text-wrap:normal] sm:text-[2.25rem] ${
+        className={`text-h2 [text-wrap:normal] ${
           caps ? "uppercase tracking-[0.005em]" : "tracking-[-0.015em]"
         }`}
       >
@@ -100,7 +100,7 @@ export function SectionHeading({
       </h2>
       {sub ? (
         <p
-          className={`mt-4 max-w-md text-[0.98rem] leading-relaxed ${
+          className={`mt-4 max-w-md text-md ${
             align === "center" ? "mx-auto" : ""
           } ${subColor}`}
         >
@@ -130,7 +130,7 @@ export function Tag({
   } as const;
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[0.62rem] font-medium uppercase tracking-[0.12em] ${T[tone]} ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-xs font-medium uppercase tracking-[0.12em] ${T[tone]} ${className}`}
     >
       {children}
     </span>

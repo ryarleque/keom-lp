@@ -44,7 +44,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[0.82rem] font-medium text-ink-soft transition-colors hover:text-ink"
+              className="text-sm font-medium text-ink-soft transition-colors hover:text-ink"
             >
               {item.label}
             </a>
@@ -55,7 +55,7 @@ export function SiteHeader() {
           href={whatsappUrl("header")}
           target="_blank"
           rel="noopener noreferrer"
-          className="press rounded-[10px] bg-mint-fill px-4 py-2 font-display text-[0.72rem] font-bold uppercase tracking-[0.1em] text-on-mint hover:bg-mint"
+          className="press rounded-[10px] bg-mint-fill px-4 py-2 font-display text-xs font-bold uppercase tracking-[0.1em] text-on-mint hover:bg-mint"
         >
           Agendar demo
         </a>
@@ -74,7 +74,7 @@ export function StickyDemoButton() {
       rel="noopener noreferrer"
       aria-hidden={!past}
       tabIndex={past ? 0 : -1}
-      className={`fixed bottom-5 right-5 z-40 flex items-center gap-2.5 rounded-full bg-mint-fill px-5 py-3 font-display text-[0.72rem] font-bold uppercase tracking-[0.12em] text-on-mint shadow-[0_18px_40px_-16px_rgba(61,220,132,0.5)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 hover:bg-mint active:scale-[0.97] ${
+      className={`fixed bottom-5 right-5 z-40 flex items-center gap-2.5 rounded-full bg-mint-fill px-5 py-3 font-display text-xs font-bold uppercase tracking-[0.12em] text-on-mint shadow-[0_18px_40px_-16px_rgba(61,220,132,0.5)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 hover:bg-mint active:scale-[0.97] ${
         past
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"

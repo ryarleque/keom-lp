@@ -85,6 +85,41 @@
   --font-display: var(--font-archivo), "Arial Narrow", system-ui, sans-serif;
   --font-mono: var(--font-martian), ui-monospace, "SF Mono", monospace;
   --font-body: var(--font-hanken), system-ui, sans-serif;
+
+  /* ---- type role scale (size + baked-in leading) ------------------
+     xs     captions, timestamps, micro-labels
+     sm     labels, nav, chips, tags, mono eyebrows
+     base   dense body — list items, card copy on dark
+     md     body prose (16px floor)
+     lg     lead — hero answer, section sub
+     title  card / column headings
+     stat   metric numbers
+     h2 / h1  fluid display
+  --------------------------------------------------------------- */
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1.35;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.4;
+  --text-sm: 0.8125rem;
+  --text-sm--line-height: 1.45;
+  --text-base: 0.9375rem;
+  --text-base--line-height: 1.6;
+  --text-md: 1rem;
+  --text-md--line-height: 1.65;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.35;
+  --text-title: 1.125rem;
+  --text-title--line-height: 1.3;
+  --text-stat: 1.55rem;
+  --text-stat--line-height: 1;
+  --text-h2: clamp(1.7rem, 1rem + 2.2vw, 2.2rem);
+  --text-h2--line-height: 1.08;
+  --text-h1: clamp(2rem, 1.05rem + 3.6vw, 2.95rem);
+  --text-h1--line-height: 1.05;
+  --text-splash: clamp(2.75rem, 1.6rem + 5vw, 3.75rem);
+  --text-splash--line-height: 1;
 }
 
 @layer base {

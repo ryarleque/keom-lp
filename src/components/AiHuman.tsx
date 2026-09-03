@@ -23,10 +23,10 @@ function Card({
         {icon}
       </div>
       <div className="min-w-0">
-        <h3 className="font-body text-[1.15rem] font-bold text-ink">{title}</h3>
+        <h3 className="font-body text-title font-bold text-ink">{title}</h3>
         <ul className="mt-5 flex flex-col gap-3.5">
           {tasks.map((t) => (
-            <li key={t} className="flex items-start gap-2.5 text-[0.92rem] text-ink-soft">
+            <li key={t} className="flex items-start gap-2.5 text-base text-ink-soft">
               <span
                 className={`mt-0.5 grid h-[1.1rem] w-[1.1rem] shrink-0 place-items-center rounded-full ${
                   human
@@ -59,7 +59,7 @@ export function AiHuman() {
       </Section>
 
       <Section tone="dark" pad="lg">
-        <div className="relative mx-auto grid max-w-5xl gap-6 md:-mt-8 md:grid-cols-2 md:gap-16">
+        <div className="relative mx-auto grid max-w-5xl gap-12 md:-mt-8 md:grid-cols-2 md:gap-32">
           <Card
             icon={<Bot size={52} />}
             title="KEOM se encarga de"
