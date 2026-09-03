@@ -3,15 +3,27 @@
 // Pre-lanzamiento: sin clientes, métricas ni testimonios reales. Las cifras van
 // etiquetadas como "ejemplo".
 
-// TODO(keom): reemplazar por el número / link real de WhatsApp comercial.
+// TODO(keom): reemplazar por los datos reales de contacto comercial.
 const WHATSAPP_NUMBER = "51999999999";
+export const CONTACT = {
+  whatsappDisplay: "+51 987 654 321",
+  email: "contacto@keom.ai",
+};
 
-export function whatsappUrl(context = "landing"): string {
+export function whatsappUrl(context = "landing", message?: string): string {
   const text = encodeURIComponent(
-    `Hola KEOM, quiero agendar una demo. (via ${context})`,
+    message ?? `Hola KEOM, quiero agendar una demo. (via ${context})`,
   );
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 }
+
+// Sección 6 (contacto / CTA final)
+export const CONTACT_COPY = {
+  title: "¿Listo para recuperar ventas?",
+  body: "Hablemos sobre cómo KEOM puede ayudarte a detectar oportunidades en riesgo y convertirlas en acciones, citas y ventas recuperadas.",
+  note: "Te responderemos en menos de 24 horas.",
+  cta: "Agendar demo",
+};
 
 // Navegación (one-page: ancla a las secciones que existen)
 export const NAV: { label: string; href: string }[] = [

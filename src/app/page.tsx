@@ -6,6 +6,8 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { AiHuman } from "@/components/AiHuman";
 import { Panels } from "@/components/Panels";
 import { Integrations } from "@/components/Integrations";
+import { Contacto } from "@/components/Contacto";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export default function Home() {
   return (
@@ -20,13 +22,9 @@ export default function Home() {
         <AiHuman />
         <Panels />
         <Integrations />
-        {/* redesign in progress — sections land one at a time */}
-        <div className="flex min-h-[30vh] items-center justify-center bg-bg px-6 text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-mute">
-            Sección 6 (contacto) en construcción
-          </p>
-        </div>
+        <Contacto />
       </main>
+      <SiteFooter />
     </>
   );
 }
