@@ -58,8 +58,8 @@ export function AiHuman() {
         </SectionHeading>
       </Section>
 
-      <Section tone="dark" pad="md">
-        <div className="relative mx-auto -mt-16 grid max-w-5xl gap-6 md:grid-cols-2 md:gap-16 lg:-mt-20">
+      <Section tone="dark" pad="lg">
+        <div className="relative mx-auto grid max-w-5xl gap-6 md:-mt-8 md:grid-cols-2 md:gap-16">
           <Card
             icon={<Bot size={52} />}
             title="KEOM se encarga de"
