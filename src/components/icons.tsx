@@ -183,3 +183,27 @@ export function Users({ size = 22, className }: P) {
     </svg>
   );
 }
+
+export function Bot({ size = 22, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <rect x="5" y="8" width="14" height="11" rx="3" />
+      <path d="M12 8V4M9 4h6" />
+      <circle cx="9.5" cy="13" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="14.5" cy="13" r="1.1" fill="currentColor" stroke="none" />
+      <path d="M3 12v3M21 12v3" />
+    </svg>
+  );
+}
+
+export function UsersTrio({ size = 22, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <circle cx="12" cy="7.5" r="2.6" />
+      <circle cx="5.5" cy="9.5" r="2.1" />
+      <circle cx="18.5" cy="9.5" r="2.1" />
+      <path d="M7.5 18c.6-2.6 2.3-4 4.5-4s3.9 1.4 4.5 4" />
+      <path d="M2.5 16.5c.4-1.8 1.4-3 3-3.2M18.5 13.3c1.6.2 2.6 1.4 3 3.2" />
+    </svg>
+  );
+}

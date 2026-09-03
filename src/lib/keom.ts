@@ -229,19 +229,18 @@ export const RECOVERY_CHAT: { who: "cliente" | "negocio"; text: string }[] = [
   { who: "cliente", text: "Ok, quedo atenta." },
 ];
 
+// Sección 4 (IA + Humano)
 export const AI_TASKS = [
-  "Preguntas frecuentes",
-  "Clasificar la consulta",
-  "Seguimiento",
-  "Ofrecer horarios",
-  "Recordatorios de cita",
+  "Detectar señales de intención",
+  "Priorizar lo que realmente importa",
+  "Responder rápido y de forma consistente",
+  "Sugerir próximas acciones inteligentes",
 ];
 export const HUMAN_TASKS = [
-  "Clientas de alto valor",
-  "Recomendar el tratamiento",
-  "Objeciones y dudas",
-  "Casos delicados",
-  "Cerrar la venta",
+  "Negociar y resolver objeciones",
+  "Cerrar ventas y generar confianza",
+  "Atender casos delicados",
+  "Construir relaciones a largo plazo",
 ];
 
 export const SERVICES = [
