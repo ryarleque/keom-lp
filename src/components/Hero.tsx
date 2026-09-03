@@ -51,15 +51,15 @@ export function Hero() {
             </Button>
           </div>
 
-          <ul className="mt-12 flex flex-wrap gap-x-10 gap-y-6">
+          <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-6">
             {HERO_STATS.map((s) => {
               const Icon = STAT_ICON[s.icon];
               return (
-                <li key={s.label} className="flex max-w-[9rem] flex-col gap-2.5">
+                <li key={s.label} className="flex w-[7.5rem] flex-col gap-2.5">
                   <span className="grid h-10 w-10 place-items-center rounded-full border border-line-2 text-ink">
                     <Icon size={18} />
                   </span>
-                  <span className="text-[0.86rem] leading-snug text-ink-soft">
+                  <span className="text-[0.84rem] leading-snug text-ink-soft">
                     {s.label}
                   </span>
                 </li>
@@ -68,8 +68,8 @@ export function Hero() {
           </ul>
         </div>
 
-        {/* right: product mockup, blended into the background, bleeding off the right edge */}
-        <div className="relative lg:-mr-20 lg:-mt-6 xl:-mr-32">
+        {/* right: product mockup — its own dark surround blends into the page */}
+        <div className="relative lg:-mr-10 lg:-mt-4 xl:-mr-20">
           <div
             aria-hidden
             className="pointer-events-none absolute -inset-x-8 -inset-y-6 -z-10"
@@ -89,11 +89,8 @@ export function Hero() {
             className="w-full select-none"
             style={{
               WebkitMaskImage:
-                "linear-gradient(to right, transparent, #000 9%, #000 100%), linear-gradient(to bottom, #000 82%, transparent)",
-              WebkitMaskComposite: "source-in",
-              maskImage:
-                "linear-gradient(to right, transparent, #000 9%, #000 100%), linear-gradient(to bottom, #000 82%, transparent)",
-              maskComposite: "intersect",
+                "linear-gradient(to right, transparent, #000 5%)",
+              maskImage: "linear-gradient(to right, transparent, #000 5%)",
             }}
           />
         </div>
