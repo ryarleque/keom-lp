@@ -302,4 +302,15 @@ export const SERVICES = [
   "Paquetes novia",
 ];
 
-export const INTEGRATIONS = ["HubSpot", "Kommo", "Zoho", "Tu CRM actual", "Sin CRM"];
+export const INTEGRATIONS: {
+  name: string;
+  brand: "whatsapp" | "calendar" | "hubspot" | "kommo" | "gmail" | "more";
+  color?: string;
+}[] = [
+  { name: "WhatsApp", brand: "whatsapp", color: "#25D366" },
+  { name: "Google Calendar", brand: "calendar", color: "#4285F4" },
+  { name: "HubSpot", brand: "hubspot", color: "#FF7A59" },
+  { name: "Kommo", brand: "kommo", color: "#2C7BE5" },
+  { name: "Gmail", brand: "gmail", color: "#EA4335" },
+  { name: "Y más...", brand: "more" },
+];

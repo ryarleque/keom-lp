@@ -157,6 +157,27 @@ export function Calendar({ size = 18, className }: P) {
   );
 }
 
+export function Mail({ size = 16, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  );
+}
+
+export function Hub({ size = 16, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <circle cx="12" cy="12" r="3" />
+      <circle cx="12" cy="4" r="1.8" />
+      <circle cx="19" cy="16" r="1.8" />
+      <circle cx="5" cy="16" r="1.8" />
+      <path d="M12 9V6M13.7 13.5l3.6 1.8M10.3 13.5l-3.6 1.8" />
+    </svg>
+  );
+}
+
 export function Target({ size = 16, className }: P) {
   return (
     <svg {...base(size)} className={className} aria-hidden>
