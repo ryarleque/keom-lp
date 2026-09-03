@@ -115,6 +115,64 @@ export function Bell({ size = 22, className }: P) {
   );
 }
 
+export function ArrowRight({ size = 18, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+export function Send({ size = 16, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <path d="M4 12 20 4l-6 16-3-7-7-1Z" />
+    </svg>
+  );
+}
+
+export function Warning({ size = 18, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <path d="M12 4 3 19h18L12 4Z" />
+      <path d="M12 10v4M12 17h.01" />
+    </svg>
+  );
+}
+
+export function Calendar({ size = 18, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <rect x="4" y="5" width="16" height="16" rx="2" />
+      <path d="M4 10h16M9 3v4M15 3v4" />
+    </svg>
+  );
+}
+
+export function Target({ size = 16, className }: P) {
+  return (
+    <svg {...base(size)} className={className} aria-hidden>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="3.4" />
+    </svg>
+  );
+}
+
+export function WhatsApp({ size = 16, className }: P) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden
+    >
+      <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A2.8 2.8 0 0 0 6 9.4c0 1.6 1.2 3.2 1.3 3.4s2.3 3.6 5.6 5c.8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.6.3-.7.3-1.4.2-1.5s-.2-.2-.4-.3Z" />
+    </svg>
+  );
+}
+
 export function Users({ size = 22, className }: P) {
   return (
     <svg {...base(size)} className={className} aria-hidden>

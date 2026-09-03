@@ -68,6 +68,7 @@ export function SectionHeading({
   eyebrow,
   align = "center",
   caps = true,
+  width = "md",
   tone = "dark",
   className = "",
 }: {
@@ -76,26 +77,35 @@ export function SectionHeading({
   eyebrow?: ReactNode;
   align?: "center" | "left";
   caps?: boolean;
+  width?: "md" | "lg";
   tone?: "dark" | "paper";
   className?: string;
 }) {
   const subColor = tone === "paper" ? "text-on-paper-soft" : "text-ink-soft";
+  const maxW =
+    align === "left"
+      ? "max-w-xl"
+      : width === "lg"
+        ? "mx-auto max-w-4xl text-center"
+        : "mx-auto max-w-2xl text-center";
   return (
-    <header
-      className={`${
-        align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-xl"
-      } ${className}`}
-    >
+    <header className={`${maxW} ${className}`}>
       {eyebrow ? <div className="mb-3">{eyebrow}</div> : null}
       <h2
-        className={`text-[1.9rem] leading-[1.05] sm:text-[2.6rem] ${
+        className={`text-[1.75rem] leading-[1.08] [text-wrap:normal] sm:text-[2.25rem] ${
           caps ? "uppercase tracking-[0.005em]" : "tracking-[-0.015em]"
         }`}
       >
         {children}
       </h2>
       {sub ? (
-        <p className={`mt-4 text-[0.98rem] leading-relaxed ${subColor}`}>{sub}</p>
+        <p
+          className={`mt-4 max-w-md text-[0.98rem] leading-relaxed ${
+            align === "center" ? "mx-auto" : ""
+          } ${subColor}`}
+        >
+          {sub}
+        </p>
       ) : null}
     </header>
   );

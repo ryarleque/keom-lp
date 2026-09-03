@@ -145,6 +145,71 @@ export const BOARD: Opportunity[] = [
   },
 ];
 
+// Sección 2 (blanco): el costo de responder tarde
+export const PAIN_POINTS: {
+  icon: "chat" | "clock" | "eye" | "bell";
+  title: string;
+  body: string;
+}[] = [
+  { icon: "chat", title: "Clientes esperan y se van", body: "Respuestas tardías pierden oportunidades todos los días." },
+  { icon: "clock", title: "Tu equipo no sabe qué priorizar", body: "Demasiados mensajes, pocas señales claras." },
+  { icon: "eye", title: "Falta visibilidad de oportunidades", body: "No sabes qué está en riesgo hasta que es tarde." },
+  { icon: "bell", title: "Seguimientos se olvidan", body: "Sin recordatorios ni próximos pasos claros." },
+];
+
+// Sección 3 (oscuro): cómo funciona KEOM, en 4 pasos
+export type StepRow =
+  | { kind: "bubble"; mine?: boolean; text: string; time?: string }
+  | { kind: "tag"; text: string }
+  | { kind: "alert"; title: string; sub: string }
+  | { kind: "success"; title: string; sub: string }
+  | { kind: "hint"; text: string };
+
+export const FLOW_STEPS: {
+  title: string;
+  from: string;
+  status: string;
+  rows: StepRow[];
+}[] = [
+  {
+    title: "Cliente escribe por WhatsApp",
+    from: "Cliente",
+    status: "En línea",
+    rows: [
+      { kind: "bubble", text: "Hola, ¿cuánto cuesta el tratamiento?", time: "10:31" },
+    ],
+  },
+  {
+    title: "KEOM responde y detecta la intención",
+    from: "KEOM",
+    status: "Automático",
+    rows: [
+      { kind: "bubble", mine: true, text: "¡Hola! El tratamiento tiene un valor de S/ 250. ¿Te gustaría agendar una cita?", time: "10:31" },
+      { kind: "tag", text: "Intención detectada: precio" },
+      { kind: "tag", text: "Estado: interesado" },
+    ],
+  },
+  {
+    title: "El cliente no responde: KEOM lo pone en riesgo",
+    from: "Cliente",
+    status: "Visto: hoy a las 10:32",
+    rows: [
+      { kind: "bubble", mine: true, text: "Sí, por favor", time: "10:32" },
+      { kind: "alert", title: "Oportunidad en riesgo", sub: "Sin respuesta por 3h" },
+      { kind: "hint", text: "Siguiente acción sugerida: enviar recordatorio" },
+    ],
+  },
+  {
+    title: "KEOM sugiere la siguiente acción y recupera la venta",
+    from: "KEOM",
+    status: "Automático",
+    rows: [
+      { kind: "bubble", mine: true, text: "¡Perfecto! Te agendé para el jueves a las 4:00 pm.", time: "11:05" },
+      { kind: "success", title: "Cita agendada", sub: "Jueves 16 de mayo · 4:00 pm" },
+    ],
+  },
+];
+
 // KEOM en seis pasos
 export const STEPS: { title: string; body: string; photo: keyof typeof PHOTOS }[] = [
   { title: "Entiende", body: "Lee la conversación y sabe qué tratamiento quiere la clienta y qué tan decidida está.", photo: "consult" },
