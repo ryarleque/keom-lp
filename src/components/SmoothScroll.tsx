@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const HEADER_OFFSET = 76; // fixed header height + a little air
+const HEADER_OFFSET = 60; // just under the 64px header — new section tucks up, no previous-section sliver
 const MIN_MS = 480;
 const MAX_MS = 900;
 
@@ -11,8 +11,9 @@ const easeInOut = (t: number) =>
 
 /**
  * Smooth in-page navigation. Intercepts clicks on same-page anchors
- * (`a[href^="#"]`) and tweens window scroll with an eased curve,
- * accounting for the fixed header. Cancels if the user scrolls.
+ * (`a[href^="#"]`) and tweens window scroll with an eased curve to the
+ * target minus the fixed-header height. Aborts if the user scrolls
+ * during the tween (detected by scrollY diverging from what we set).
  * Reduced-motion → instant jump.
  */
 export function SmoothScroll() {
@@ -22,11 +23,6 @@ export function SmoothScroll() {
     ).matches;
 
     let raf = 0;
-
-    function cancel() {
-      if (raf) cancelAnimationFrame(raf);
-      raf = 0;
-    }
 
     function onClick(e: MouseEvent) {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey) return;
@@ -47,42 +43,38 @@ export function SmoothScroll() {
           ? 0
           : Math.max(
               0,
-              target.getBoundingClientRect().top +
-                window.scrollY -
-                HEADER_OFFSET,
+              Math.round(
+                target.getBoundingClientRect().top +
+                  window.scrollY -
+                  HEADER_OFFSET,
+              ),
             );
 
       history.pushState(null, "", `#${id}`);
 
-      if (reduce) {
+      if (raf) cancelAnimationFrame(raf);
+
+      if (reduce || Math.abs(dest - window.scrollY) < 2) {
         window.scrollTo(0, dest);
         return;
       }
 
-      cancel();
       const start = window.scrollY;
       const dist = dest - start;
-      if (Math.abs(dist) < 2) return;
-      const dur = Math.min(
-        MAX_MS,
-        Math.max(MIN_MS, Math.abs(dist) * 0.42),
-      );
+      const dur = Math.min(MAX_MS, Math.max(MIN_MS, Math.abs(dist) * 0.42));
       const t0 = performance.now();
-
-      const stopOnUserScroll = () => cancel();
-      window.addEventListener("wheel", stopOnUserScroll, { passive: true });
-      window.addEventListener("touchstart", stopOnUserScroll, { passive: true });
+      let lastSet = start;
 
       function step(now: number) {
-        const p = Math.min(1, (now - t0) / dur);
-        window.scrollTo(0, start + dist * easeInOut(p));
-        if (p < 1) {
-          raf = requestAnimationFrame(step);
-        } else {
+        // user took over (scrollY drifted from what we set) → stop
+        if (Math.abs(window.scrollY - lastSet) > 3) {
           raf = 0;
-          window.removeEventListener("wheel", stopOnUserScroll);
-          window.removeEventListener("touchstart", stopOnUserScroll);
+          return;
         }
+        const p = Math.min(1, (now - t0) / dur);
+        lastSet = Math.round(start + dist * easeInOut(p));
+        window.scrollTo(0, lastSet);
+        raf = p < 1 ? requestAnimationFrame(step) : 0;
       }
       raf = requestAnimationFrame(step);
     }
@@ -90,7 +82,7 @@ export function SmoothScroll() {
     document.addEventListener("click", onClick);
     return () => {
       document.removeEventListener("click", onClick);
-      cancel();
+      if (raf) cancelAnimationFrame(raf);
     };
   }, []);
 

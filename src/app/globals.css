@@ -91,7 +91,7 @@
   html {
     background: var(--bg);
     -webkit-text-size-adjust: 100%;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 3.75rem;
   }
 
   body {
