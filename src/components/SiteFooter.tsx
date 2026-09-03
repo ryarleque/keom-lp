@@ -11,9 +11,7 @@ export function SiteFooter() {
           <p className="mt-4 text-sm leading-relaxed text-ink-soft">
             {KEEP_TAGLINE}
           </p>
-          <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-ink-mute">
-            Lima, Perú
-          </p>
+          <p className="mt-3 text-sm text-ink-mute">Lima, Perú</p>
         </div>
 
         <nav className="flex flex-col gap-2.5">

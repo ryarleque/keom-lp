@@ -72,11 +72,11 @@ function OwnerPanel() {
             <div className="mt-3 flex items-end justify-between gap-2">
               <div className="min-w-0">
                 <p
-                  className={`whitespace-nowrap font-display text-stat font-extrabold ${VALUE_COLOR[m.tone]}`}
+                  className={`whitespace-nowrap font-display text-stat font-extrabold tabular-nums ${VALUE_COLOR[m.tone]}`}
                 >
                   {m.value}
                 </p>
-                <p className="mt-2.5 flex items-center gap-1 whitespace-nowrap text-xs text-ink-mute">
+                <p className="mt-2.5 flex items-center gap-1 whitespace-nowrap text-xs tabular-nums text-ink-mute">
                   <ArrowUp size={11} className={VALUE_COLOR[m.tone]} />
                   {m.delta}
                 </p>

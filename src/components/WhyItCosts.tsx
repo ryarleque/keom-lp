@@ -28,7 +28,7 @@ export function WhyItCosts() {
               }`}
             >
               <Icon size={28} className="text-on-paper" />
-              <h3 className="mt-5 min-h-[3em] font-body text-base font-semibold leading-snug tracking-[-0.005em] text-on-paper">
+              <h3 className="mt-5 font-body text-base font-semibold leading-snug tracking-[-0.005em] text-on-paper sm:min-h-[3em]">
                 {p.title}
               </h3>
               <p className="mt-2 text-base text-on-paper-soft">{p.body}</p>

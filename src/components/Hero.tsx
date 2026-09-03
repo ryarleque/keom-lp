@@ -54,7 +54,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <ul className="mt-12 flex sm:flex-row sm:flex-wrap gap-x-8 gap-y-6">
+          <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-6">
             {HERO_STATS.map((s) => {
               const Icon = STAT_ICON[s.icon];
               return (

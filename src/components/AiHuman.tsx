@@ -48,7 +48,7 @@ function Card({
 export function AiHuman() {
   return (
     <>
-      <Section tone="paper" pad="md">
+      <Section tone="paper" pad="none" innerClassName="pt-16 pb-10 sm:pt-24 sm:pb-16">
         <SectionHeading
           tone="paper"
           width="lg"
@@ -58,8 +58,8 @@ export function AiHuman() {
         </SectionHeading>
       </Section>
 
-      <Section tone="dark" pad="lg">
-        <div className="relative mx-auto grid max-w-5xl gap-12 md:-mt-8 md:grid-cols-2 md:gap-32">
+      <Section tone="dark" pad="none" innerClassName="pt-10 pb-16 sm:pb-24 md:pt-24">
+        <div className="relative mx-auto grid max-w-5xl gap-10 md:-mt-8 md:grid-cols-2 md:gap-32">
           <Card
             icon={<Bot size={52} />}
             title="KEOM se encarga de"
