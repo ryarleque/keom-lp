@@ -1,7 +1,12 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import { FLOW_STEPS, type StepRow } from "@/lib/keom";
 import { Section } from "./Section";
 import { SectionHeading } from "./ui";
 import { ArrowRight, Calendar, Target, Warning, WhatsApp } from "./icons";
+
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 function ChatRow({ row }: { row: StepRow }) {
   if (row.kind === "bubble") {
@@ -59,21 +64,39 @@ function ChatRow({ row }: { row: StepRow }) {
   }
 
   // hint
-  return (
-    <p className="text-[0.76rem] leading-snug text-ink-soft">{row.text}</p>
-  );
+  return <p className="text-[0.76rem] leading-snug text-ink-soft">{row.text}</p>;
 }
 
+const list = {
+  show: { transition: { staggerChildren: 0.14, delayChildren: 0.08 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+};
+
 export function HowItWorks() {
+  const reduce = useReducedMotion();
+
   return (
     <Section tone="dark" id="como-funciona">
       <SectionHeading sub="De la conversación a la acción, en 4 pasos simples.">
         Cómo funciona KEOM
       </SectionHeading>
 
-      <ol className="mt-14 grid items-start gap-x-4 gap-y-10 lg:grid-cols-4">
+      <motion.ol
+        className="mt-14 grid items-start gap-x-4 gap-y-10 lg:grid-cols-4"
+        variants={list}
+        initial={reduce ? false : "hidden"}
+        whileInView="show"
+        viewport={{ once: true, margin: "-12% 0px -12% 0px" }}
+      >
         {FLOW_STEPS.map((step, i) => (
-          <li key={step.title} className="relative flex flex-col">
+          <motion.li
+            key={step.title}
+            className="relative flex flex-col"
+            variants={reduce ? undefined : item}
+          >
             {/* connector arrow to the next step */}
             {i < FLOW_STEPS.length - 1 ? (
               <span
@@ -101,17 +124,15 @@ export function HowItWorks() {
                 <span className="text-[0.78rem] font-semibold text-ink">
                   {step.from}
                 </span>
-                <span className="text-[0.66rem] text-ink-mute">
-                  {step.status}
-                </span>
+                <span className="text-[0.66rem] text-ink-mute">{step.status}</span>
               </div>
               {step.rows.map((row, r) => (
                 <ChatRow key={r} row={row} />
               ))}
             </div>
-          </li>
+          </motion.li>
         ))}
-      </ol>
+      </motion.ol>
     </Section>
   );
 }
