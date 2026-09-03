@@ -5,6 +5,7 @@ import { FLOW_STEPS, type StepRow } from "@/lib/keom";
 import { Section } from "./Section";
 import { SectionHeading } from "./ui";
 import { ArrowRight, Calendar, Target, Warning, WhatsApp } from "./icons";
+import { KeomMark } from "./KeomMark";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -85,7 +86,7 @@ export function HowItWorks() {
       </SectionHeading>
 
       <motion.ol
-        className="mt-14 grid items-start gap-x-4 gap-y-10 lg:grid-cols-4"
+        className="mt-14 grid items-stretch gap-x-4 gap-y-10 lg:grid-cols-4"
         variants={list}
         initial={reduce ? false : "hidden"}
         whileInView="show"
@@ -94,7 +95,7 @@ export function HowItWorks() {
         {FLOW_STEPS.map((step, i) => (
           <motion.li
             key={step.title}
-            className="relative flex flex-col"
+            className="relative flex h-full flex-col"
             variants={reduce ? undefined : item}
           >
             {/* connector arrow to the next step */}
@@ -107,28 +108,45 @@ export function HowItWorks() {
               </span>
             ) : null}
 
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-3 sm:min-h-[7rem]">
               <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-mint/50 font-mono text-[0.7rem] font-semibold text-mint">
                 {i + 1}
               </span>
-              <h3 className="text-[0.92rem] font-semibold leading-snug text-ink">
-                {step.title}
-              </h3>
+              <div>
+                <h3 className="text-[0.92rem] font-semibold leading-snug text-ink">
+                  {step.title}
+                </h3>
+                <p className="mt-1.5 text-[0.8rem] leading-snug text-ink-soft">
+                  {step.summary}
+                </p>
+              </div>
             </div>
 
-            <div className="mt-4 flex flex-col gap-2.5 rounded-2xl border border-line bg-surface p-4">
+            <div className="mt-4 flex flex-1 flex-col gap-2.5 rounded-2xl border border-line bg-surface p-4">
               <div className="flex items-center gap-2 border-b border-line pb-2.5">
-                <span className="grid h-6 w-6 place-items-center rounded-full bg-surface-2 text-mint">
-                  <WhatsApp size={13} />
+                <span
+                  className={`grid h-6 w-6 place-items-center rounded-full bg-surface-2 ${
+                    step.from === "KEOM" ? "text-mint" : "text-ink-soft"
+                  }`}
+                >
+                  {step.from === "KEOM" ? (
+                    <KeomMark size={13} title="" />
+                  ) : (
+                    <WhatsApp size={13} />
+                  )}
                 </span>
                 <span className="text-[0.78rem] font-semibold text-ink">
                   {step.from}
                 </span>
-                <span className="text-[0.66rem] text-ink-mute">{step.status}</span>
+                <span className="ml-auto text-[0.64rem] text-ink-mute">
+                  {step.status}
+                </span>
               </div>
-              {step.rows.map((row, r) => (
-                <ChatRow key={r} row={row} />
-              ))}
+              <div className="flex flex-1 flex-col gap-2.5">
+                {step.rows.map((row, r) => (
+                  <ChatRow key={r} row={row} />
+                ))}
+              </div>
             </div>
           </motion.li>
         ))}

@@ -177,44 +177,53 @@ export type StepRow =
 
 export const FLOW_STEPS: {
   title: string;
+  summary: string;
   from: string;
   status: string;
   rows: StepRow[];
 }[] = [
   {
-    title: "Cliente escribe por WhatsApp",
+    title: "El cliente escribe por WhatsApp",
+    summary: "Una consulta más entra a tu bandeja, como cualquier otro día.",
     from: "Cliente",
     status: "En línea",
     rows: [
       { kind: "bubble", text: "Hola, ¿cuánto cuesta el tratamiento?", time: "10:31" },
+      { kind: "bubble", text: "¿Tienen espacio esta semana?", time: "10:31" },
     ],
   },
   {
-    title: "KEOM responde y detecta la intención",
+    title: "KEOM responde al instante y detecta la intención",
+    summary: "Contesta en segundos y entiende qué quiere el cliente y qué tan decidido está.",
     from: "KEOM",
-    status: "Automático",
+    status: "Responde en segundos",
     rows: [
-      { kind: "bubble", mine: true, text: "¡Hola! El tratamiento tiene un valor de S/ 250. ¿Te gustaría agendar una cita?", time: "10:31" },
-      { kind: "tag", text: "Intención detectada: precio" },
-      { kind: "tag", text: "Estado: interesado" },
+      { kind: "bubble", text: "Hola, ¿cuánto cuesta el tratamiento?", time: "10:31" },
+      { kind: "bubble", mine: true, text: "¡Hola! El tratamiento cuesta S/ 250 e incluye evaluación. ¿Te gustaría agendar una cita?", time: "10:31" },
+      { kind: "tag", text: "Intención: precio + agenda" },
+      { kind: "tag", text: "Prioridad: alta" },
     ],
   },
   {
-    title: "El cliente no responde: KEOM lo pone en riesgo",
+    title: "El cliente se enfría y KEOM lo marca en riesgo",
+    summary: "Mostró interés pero no confirmó. KEOM lo detecta antes de que se pierda.",
     from: "Cliente",
-    status: "Visto: hoy a las 10:32",
+    status: "Sin respuesta · 3 h",
     rows: [
-      { kind: "bubble", mine: true, text: "Sí, por favor", time: "10:32" },
-      { kind: "alert", title: "Oportunidad en riesgo", sub: "Sin respuesta por 3h" },
-      { kind: "hint", text: "Siguiente acción sugerida: enviar recordatorio" },
+      { kind: "bubble", text: "Sí, me interesa", time: "10:32" },
+      { kind: "bubble", mine: true, text: "Genial. ¿Prefieres mañana o el jueves?", time: "10:33" },
+      { kind: "alert", title: "Oportunidad en riesgo", sub: "Sin respuesta hace 3 h" },
+      { kind: "hint", text: "Acción sugerida: reactivar con un horario concreto" },
     ],
   },
   {
-    title: "KEOM sugiere la siguiente acción y recupera la venta",
+    title: "KEOM reactiva la conversación y recupera la venta",
+    summary: "Hace el seguimiento con una propuesta concreta y cierra la cita.",
     from: "KEOM",
-    status: "Automático",
+    status: "Seguimiento automático",
     rows: [
-      { kind: "bubble", mine: true, text: "¡Perfecto! Te agendé para el jueves a las 4:00 pm.", time: "11:05" },
+      { kind: "bubble", mine: true, text: "Te guardé el jueves 16 a las 4:00 pm. ¿Lo confirmo?", time: "13:40" },
+      { kind: "bubble", text: "Sí, perfecto", time: "13:42" },
       { kind: "success", title: "Cita agendada", sub: "Jueves 16 de mayo · 4:00 pm" },
     ],
   },
