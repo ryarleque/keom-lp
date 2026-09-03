@@ -1,4 +1,5 @@
 import { Splash } from "@/components/Splash";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { SiteHeader, StickyDemoButton } from "@/components/SiteChrome";
 import { Hero } from "@/components/Hero";
 import { WhyItCosts } from "@/components/WhyItCosts";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <>
       <Splash />
+      <SmoothScroll />
       <SiteHeader />
       <StickyDemoButton />
       <main>

@@ -22,7 +22,7 @@ export const CONTACT_COPY = {
   title: "¿Listo para recuperar ventas?",
   body: "Hablemos sobre cómo KEOM puede ayudarte a detectar oportunidades en riesgo y convertirlas en acciones, citas y ventas recuperadas.",
   note: "Te responderemos en menos de 24 horas.",
-  cta: "Agendar demo",
+  cta: "Escribir por WhatsApp",
 };
 
 // Navegación (one-page: ancla a las secciones que existen)
@@ -61,7 +61,7 @@ export const KEEP_TAGLINE = "Keep Every Opportunity Moving";
 
 // Fotos: stock (Unsplash) en public/photos/ + el mockup de producto.
 export const PHOTOS = {
-  heroDash: { src: "/assets/hero-dashboard.png", w: 1035, h: 900, alt: "Panel de KEOM en una laptop: oportunidades en riesgo, ventas recuperadas y próxima acción sugerida (datos de ejemplo)" },
+  heroDash: { src: "/photos/hero.png", w: 1448, h: 1086, alt: "Panel de KEOM en una tablet: oportunidades en riesgo, ventas recuperadas y próxima acción sugerida (datos de ejemplo)" },
   dashboard: { src: "/photos/dashboard.jpg", w: 1600, h: 1200, alt: "Panel de KEOM: oportunidades en riesgo, ventas recuperadas y próxima acción" },
   herodark: { src: "/photos/herodark.jpg", w: 1400, h: 933, alt: "Sesión de tratamiento en un centro estético, con aceites y velas" },
   salon: { src: "/photos/salon.jpg", w: 1400, h: 934, alt: "Interior de un centro estético" },

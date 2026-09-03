@@ -68,14 +68,14 @@ export function Hero() {
           </ul>
         </div>
 
-        {/* right: product mockup — its own dark surround blends into the page */}
-        <div className="relative lg:-mr-10 lg:-mt-4 xl:-mr-20">
+        {/* right: floating product mockup (transparent PNG) */}
+        <div className="relative lg:-mr-8 lg:-mt-4 xl:-mr-16">
           <div
             aria-hidden
-            className="pointer-events-none absolute -inset-x-8 -inset-y-6 -z-10"
+            className="pointer-events-none absolute -inset-x-6 -inset-y-8 -z-10"
             style={{
               background:
-                "radial-gradient(55% 55% at 62% 42%, rgba(61,220,132,0.16), transparent 72%)",
+                "radial-gradient(55% 55% at 58% 44%, rgba(61,220,132,0.18), transparent 72%)",
             }}
           />
           <img
@@ -88,9 +88,7 @@ export function Hero() {
             decoding="async"
             className="w-full select-none"
             style={{
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent, #000 5%)",
-              maskImage: "linear-gradient(to right, transparent, #000 5%)",
+              filter: "drop-shadow(0 40px 70px rgba(0,0,0,0.55))",
             }}
           />
         </div>
