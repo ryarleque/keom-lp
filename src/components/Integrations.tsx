@@ -27,7 +27,7 @@ function BrandMark({ brand, color }: { brand: string; color?: string }) {
 
 export function Integrations() {
   return (
-    <Section tone="dark" id="integraciones" pad="none" innerClassName="py-16 sm:py-20">
+    <Section tone="dark" id="integraciones" pad="none" innerClassName="py-12 sm:py-16">
       <p className="text-center font-display text-[0.9rem] font-bold uppercase tracking-[0.12em] text-ink-soft">
         Se integra con las herramientas que ya usas
       </p>
