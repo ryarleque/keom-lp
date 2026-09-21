@@ -79,3 +79,31 @@ It complements the salesperson rather than replacing them: the AI handles routin
 3. The AI does the routine; humans do what matters — KEOM makes a sales team's time more valuable, it does not replace the team.
 4. Measure business outcomes (recovered opportunities, bookings, revenue), not activity.
 5. Fit into the business's existing stack; do not force a rip-and-replace.
+
+## Opportunity model (landing V2)
+
+Durable product truth used to write the landing. Separate from visual decisions (see `DESIGN.md`).
+
+**Core object:** the *Opportunity*. Not the message, not the lead.
+
+**Chain:** Conversation → Intent → Opportunity → Stalling signal → Risk → Priority → Next Best Action → AI or Human execution → Recovered opportunity → Recovered appointment → Recovered revenue.
+
+**Signals KEOM reads:** intent, conversation state, elapsed time, pending action, potential value, risk.
+
+**Time is a signal, not the KPI.** "Sin respuesta hace 3 h" is evidence that an opportunity may have stalled. It feeds a decision together with intent, context and value. The business metric is opportunities and revenue recovered, never response speed. Do not headline "cada hora sin respuesta cuesta dinero" or "responder más rápido".
+
+**Core thesis (Spanish, landing):** "Tus oportunidades no siempre se pierden de inmediato. Primero dejan de avanzar."
+
+**Four problems, one root cause (stalled opportunities):**
+1. Oportunidades esperando atención.
+2. Seguimientos pendientes.
+3. Prioridades poco claras.
+4. Poca visibilidad.
+
+**Audience for the first use case:** appointment-driven service businesses with high WhatsApp volume, starting with aesthetic clinics and similar. The landing reader is the owner or manager.
+
+**Real product surfaces (from `keom-platform`, demo data):** "Clientes en riesgo" (seller: risk level, potential value, score, siguiente mejor acción, Abrir WhatsApp), "Necesitan tu atención" (seller: opportunities that require a human), "Reportes" (owner: ingresos recuperados, oportunidades recuperadas, tasa de recuperación, en riesgo). Anything shown from these is demo data and must be labelled "Datos demostrativos".
+
+**Integration honesty:** WhatsApp is the initial, available flow. Google Calendar, HubSpot, Kommo and Gmail are "Próximamente". Do not imply otherwise.
+
+**Contact:** WhatsApp only (`+51 938 244 200`). The email in the V1 code was a placeholder and is not shown.

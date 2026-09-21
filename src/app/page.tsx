@@ -1,32 +1,43 @@
-import { Splash } from "@/components/Splash";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { SiteHeader, StickyDemoButton } from "@/components/SiteChrome";
-import { Hero } from "@/components/Hero";
-import { WhyItCosts } from "@/components/WhyItCosts";
-import { HowItWorks } from "@/components/HowItWorks";
-import { AiHuman } from "@/components/AiHuman";
-import { Panels } from "@/components/Panels";
-import { Integrations } from "@/components/Integrations";
-import { Contacto } from "@/components/Contacto";
-import { SiteFooter } from "@/components/SiteFooter";
+import { Nav } from "@/components/v2/Nav";
+import { Hero } from "@/components/v2/Hero";
+import { Thesis } from "@/components/v2/Thesis";
+import { Problems } from "@/components/v2/Problems";
+import { HowItWorks } from "@/components/v2/HowItWorks";
+import { TimeSignal } from "@/components/v2/TimeSignal";
+import { Steps } from "@/components/v2/Steps";
+import { HumanAI } from "@/components/v2/HumanAI";
+import { Roles } from "@/components/v2/Roles";
+import { Outcomes } from "@/components/v2/Outcomes";
+import { Integrations } from "@/components/v2/Integrations";
+import { FinalCta } from "@/components/v2/FinalCta";
+import { Footer } from "@/components/v2/Footer";
 
 export default function Home() {
   return (
     <>
-      <Splash />
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[10px] focus:bg-k-brand-soft focus:px-4 focus:py-2 focus:text-k-brand-ink"
+      >
+        Saltar al contenido
+      </a>
       <SmoothScroll />
-      <SiteHeader />
-      <StickyDemoButton />
-      <main>
+      <Nav />
+      <main id="main" className="overflow-x-clip">
         <Hero />
-        <WhyItCosts />
+        <Thesis />
+        <Problems />
         <HowItWorks />
-        <AiHuman />
-        <Panels />
+        <TimeSignal />
+        <Steps />
+        <HumanAI />
+        <Roles />
+        <Outcomes />
         <Integrations />
-        <Contacto />
+        <FinalCta />
       </main>
-      <SiteFooter />
+      <Footer />
     </>
   );
 }

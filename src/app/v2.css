@@ -1,0 +1,155 @@
+/* ============================================================
+   KEOM V2 — tokens y utilidades. Fuente de verdad: /DESIGN.md
+   Prefijo k- para no chocar con los tokens de V1 (/v1).
+   ============================================================ */
+
+@theme {
+  --color-k-bg: #0a0d11;
+  --color-k-raised: #0f1318;
+  --color-k-surface: #141a21;
+  --color-k-high: #1a222b;
+  --color-k-line: rgb(255 255 255 / 0.08);
+  --color-k-line-strong: rgb(255 255 255 / 0.14);
+  --color-k-ink: #eef2f5;
+  --color-k-soft: #a3aeb9;
+  --color-k-mute: #75828f;
+  --color-k-brand: #3ddc84;
+  --color-k-brand-soft: #92e6b6;
+  --color-k-brand-ink: #06210f;
+  --color-k-brand-dim: rgb(61 220 132 / 0.12);
+  --color-k-danger: #f0574e;
+  --color-k-danger-dim: rgb(240 87 78 / 0.14);
+  --color-k-warn: #e6a23c;
+  --color-k-warn-dim: rgb(230 162 60 / 0.14);
+
+  --font-k-sans: var(--font-geist), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-k-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+
+  --ease-k-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --shadow-k-screen: 0 40px 90px -50px rgb(0 0 0 / 0.85);
+}
+
+/* ---- escala tipográfica (DESIGN.md → typography) ---- */
+@layer components {
+  .k-display,
+  .k-h2,
+  .k-h3,
+  .k-lead,
+  .k-body,
+  .k-small,
+  .k-label {
+    font-family: var(--font-k-sans);
+    text-transform: none;
+  }
+
+  .k-display {
+    font-size: clamp(2.5rem, 1.4rem + 4.6vw, 4.5rem);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+  .k-h2 {
+    font-size: clamp(2rem, 1.3rem + 2.6vw, 3.25rem);
+    line-height: 1.06;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .k-h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .k-lead {
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+    line-height: 1.55;
+    font-weight: 400;
+    text-wrap: pretty;
+  }
+  .k-body {
+    font-size: 1rem;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+  .k-small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .k-label {
+    font-family: var(--font-k-mono);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* botón: feedback táctil inmediato, sin rebote */
+  .k-press {
+    transition:
+      transform 120ms var(--ease-k-out),
+      background-color 200ms var(--ease-k-out),
+      border-color 200ms var(--ease-k-out),
+      color 200ms var(--ease-k-out);
+  }
+  .k-press:active {
+    transform: scale(0.97);
+  }
+
+  /* marco de captura de producto */
+  .k-shot {
+    border: 1px solid var(--color-k-line-strong);
+    border-radius: 14px;
+    background: var(--color-k-surface);
+    overflow: hidden;
+  }
+}
+
+/* ---- aparición de bloques (solo transform + opacity) ---------------------
+   Con JS desactivado el contenido se ve. Con movimiento reducido, también. */
+@media (scripting: enabled) {
+  [data-reveal]:not([data-in="true"]) {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  [data-reveal="scale"]:not([data-in="true"]) {
+    transform: scale(0.98);
+  }
+}
+[data-reveal] {
+  transition:
+    opacity 320ms var(--ease-k-out),
+    transform 320ms var(--ease-k-out);
+  transition-delay: var(--d, 0ms);
+}
+[data-reveal="scale"] {
+  transition-duration: 600ms;
+}
+
+/* entrada del hero: solo desplazamiento (sin opacity 0) para no retrasar el LCP */
+@keyframes k-rise {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: none;
+  }
+}
+.k-rise {
+  animation: k-rise 600ms var(--ease-k-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal]:not([data-in="true"]) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .k-rise {
+    animation: none;
+  }
+}
