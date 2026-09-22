@@ -1,4 +1,5 @@
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { Splash } from "@/components/v2/Splash";
 import { Nav } from "@/components/v2/Nav";
 import { Hero } from "@/components/v2/Hero";
 import { Thesis } from "@/components/v2/Thesis";
@@ -22,6 +23,7 @@ export default function Home() {
       >
         Saltar al contenido
       </a>
+      <Splash />
       <SmoothScroll />
       <Nav />
       <main id="main" className="overflow-x-clip">

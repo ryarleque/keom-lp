@@ -139,6 +139,7 @@ Regla: si la animación no explica algo, se quita.
 | Aparición de bloque | CSS opacity + translateY 8 px | 320 ms | easeOut |
 | Cambio de captura en sticky / pestañas | CSS crossfade de opacity | 200 a 280 ms | easeOut |
 | Entrada del video | CSS scale 0.98 → 1 + opacity | 600 ms, una sola vez | easeOut |
+| Splash de marca (símbolo, KEOM, lema, barra) | CSS opacity + translateY 12 px, barra con scaleX | 900 ms escalonado; visible 2.9 s la primera vez, 1.3 s después en la sesión | easeOut |
 | Contador | rAF corto, una sola cifra | 900 ms | easeOut |
 
 - Solo `transform` y `opacity`. Nunca animar `width`, `height`, `top`, `left`.
@@ -168,7 +169,7 @@ Regla: si la animación no explica algo, se quita.
 
 - LCP del hero = el H1 (texto), no una imagen. La captura del hero carga con prioridad pero no bloquea el texto.
 - Video: `preload="none"` + póster, la fuente se asigna al acercarse a la vista, se pausa fuera de pantalla, proporción 16:9 reservada.
-- Fuentes con `next/font` (Geist y Geist Mono, `display: swap`). Sin splash de entrada.
+- Fuentes con `next/font` (Geist y Geist Mono, `display: swap`). Splash de marca al cargar (ver Movimiento): solo transform y opacity, más corto en visitas repetidas de la sesión, con `prefers-reduced-motion` se muestra estático, y se oculta sin JavaScript. Su tiempo se ajusta en `HOLD_MS`, `SEEN_HOLD_MS` y `FADE_MS` de `components/v2/Splash.tsx`.
 
 ## Anti-patrones (prohibido)
 

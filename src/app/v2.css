@@ -142,6 +142,34 @@
   animation: k-rise 600ms var(--ease-k-out) both;
 }
 
+/* splash de marca: aparición escalonada y barra de progreso (transform + opacity) */
+@keyframes k-splash-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.k-splash-in {
+  animation: k-splash-in 900ms var(--ease-k-out) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes k-splash-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.k-splash-bar {
+  transform-origin: left;
+  animation: k-splash-bar linear both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-reveal],
   [data-reveal]:not([data-in="true"]) {
